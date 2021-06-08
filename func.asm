@@ -1,5 +1,5 @@
-; r8        length of first number
-; r9        length of second number
+; r8d       length of first number
+; r9d       length of second number
 ; r10       first number pointer
 ; r11       second number pointer
 ; r12       result pointer
@@ -13,7 +13,6 @@ section .text
 
 smul:
     push    r12
-    mov     ch, 10              ; divider
 
     ; Change first number to int
     xor     r8d, r8d
@@ -38,6 +37,7 @@ second_to_int:
     dec     r9d
 
     ; Muliply numbers
+    mov     ch, 10              ; divider
     mov     r10d, r8d           ; r10d = length of first number
     mov     r12, rdi            ; r12 = address of result string
     add     r12, r10            ; r12 += length of first number
